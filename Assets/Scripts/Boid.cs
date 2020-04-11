@@ -35,7 +35,6 @@ public class Boid : MonoBehaviour
         }
         else
         {
-            if(Random.Range(0,5) < 1)
                 ApplyRules();
         }
         transform.Translate(0, 0, Time.deltaTime * speed);

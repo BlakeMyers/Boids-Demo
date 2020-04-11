@@ -28,7 +28,7 @@ public class BoidManager : MonoBehaviour
     {
         if (Time.time > goalmoved + goal_move_time)
         {
-            Goal = new Vector3(Random.Range(-AreaSize, AreaSize), Random.Range(-AreaSize, AreaSize), Random.Range(-AreaSize, AreaSize));
+            Goal = new Vector3(Random.Range(-AreaSize + 3, AreaSize - 3), Random.Range(-AreaSize + 3, AreaSize - 3), Random.Range(-AreaSize + 3, AreaSize - 3));
             Goalmarker.transform.position = Goal;
             goalmoved = Time.time;
         }
