@@ -9,16 +9,35 @@ public class Boid : MonoBehaviour
     float rotationSpeed = 4.0f;
     Vector3 averageHeading;
     Vector3 averagePosition;
-    float detectionDistance = 13.0f;
+    float detectionDistance = 8.0f;
+    bool turning = false;
     void Start()
     {
-        speed = Random.Range(0.5f, 1.5f);
+        speed = Random.Range(1, 3);
     }
 
     // Update is called once per frame
     void Update()
     {
-        ApplyRules();
+        if (Vector3.Distance(transform.position, Vector3.zero) >= BoidManager.AreaSize)
+        {
+            turning = true;
+        }
+        else 
+        {
+            turning = false;
+        }
+        if (turning)
+        {
+            Vector3 direction = Vector3.zero - transform.position;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
+            speed = Random.Range(1, 3);
+        }
+        else
+        {
+            if(Random.Range(0,5) < 1)
+                ApplyRules();
+        }
         transform.Translate(0, 0, Time.deltaTime * speed);
     }
 
@@ -37,7 +56,7 @@ public class Boid : MonoBehaviour
                 if (dist <= detectionDistance) {
                     toCenter += boid.transform.position;
                     groupSize++;
-                    if (dist < 1.0f) {
+                    if (dist < 1.5f) {
                         toAvoid = toAvoid + (this.transform.position - boid.transform.position);
                     }
 

@@ -152,14 +152,7 @@ MonoBehaviour:
   Boidprefab: {fileID: 5087310211575095046, guid: d6681ae4907335c49a4b3073093b9d9a,
     type: 3}
   Goalmarker: {fileID: 1585269161}
-  AreaSize: 10
-  Boids:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  goal_move_time: 5
+  goal_move_time: 4
 --- !u!4 &335383072
 Transform:
   m_ObjectHideFlags: 0

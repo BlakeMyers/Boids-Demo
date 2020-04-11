@@ -8,7 +8,7 @@ public class BoidManager : MonoBehaviour
     public GameObject Boidprefab;
     public GameObject Goalmarker;
     static int NumBoids = 5;
-    public int AreaSize = 10;
+    public static int AreaSize = 10;
     public static GameObject[] Boids = new GameObject[NumBoids];
     public static Vector3 Goal = Vector3.zero;
     float goalmoved = 0.0f;
