@@ -7,6 +7,7 @@ public class BoidManager : MonoBehaviour
 
     public GameObject Boidprefab;
     public GameObject Goalmarker;
+    public Text BoidMode;
     static int NumBoids = 5;
     public static int AreaSize = 10;
     public static GameObject[] Boids = new GameObject[NumBoids];
@@ -17,6 +18,7 @@ public class BoidManager : MonoBehaviour
     void Start()
     {
         //goalmoved = Time.time;
+        BoidMode.text = "Boid Mode: Lazy Flight";
         for (int i = 0; i < NumBoids; i++)
         {
             Vector3 spawnpoint = new Vector3(Random.Range(-AreaSize, AreaSize), Random.Range(-AreaSize, AreaSize), Random.Range(-AreaSize, AreaSize));
@@ -56,10 +58,12 @@ public class BoidManager : MonoBehaviour
    public void toggleMode() {
         if (Circletree)
         {
+            BoidMode.text = "Boid Mode: Lazy Flight";
             Circletree = false;
         }
         else
         {
+            BoidMode.text = "Boid Mode: Circle Tree";
             Goal = new Vector3(0, 0, 0);
             Goalmarker.transform.position = Goal;
             Circletree = true;
