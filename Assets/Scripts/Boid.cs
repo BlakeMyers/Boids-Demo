@@ -68,6 +68,8 @@ public class Boid : MonoBehaviour
         if (groupSize > 0) {
             toCenter = toCenter / groupSize + (toGoal - this.transform.position);
             speed = groupSpeed / groupSize;
+            if (speed > 5)
+                speed = 5;
 
             Vector3 direction = (toCenter + toAvoid) - transform.position;
             if (direction != Vector3.zero)
