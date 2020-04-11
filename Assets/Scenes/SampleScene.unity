@@ -358,7 +358,7 @@ MonoBehaviour:
   Boidprefab: {fileID: 5087310211575095046, guid: d6681ae4907335c49a4b3073093b9d9a,
     type: 3}
   Goalmarker: {fileID: 1585269161}
-  goal_move_time: 4
+  Circletree: 0
 --- !u!4 &335383072
 Transform:
   m_ObjectHideFlags: 0
@@ -727,7 +727,7 @@ GameObject:
   m_Layer: 0
   m_Name: Goal marker
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

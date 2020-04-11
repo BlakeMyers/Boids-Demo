@@ -61,7 +61,7 @@ public class Boid : MonoBehaviour
                 if (dist <= detectionDistance) {
                     toCenter += boid.transform.position;
                     groupSize++;
-                    if (dist < 1.5f) {
+                    if (dist < 2f) {
                         toAvoid = toAvoid + (this.transform.position - boid.transform.position);
                     }
 

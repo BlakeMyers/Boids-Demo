@@ -12,11 +12,11 @@ public class BoidManager : MonoBehaviour
     public static GameObject[] Boids = new GameObject[NumBoids];
     public static Vector3 Goal = Vector3.zero;
    // float goalmoved = 0.0f;
-    public float goal_move_time = 5.0f;
+  //  public float goal_move_time = 5.0f;
     public bool Circletree = false;
     void Start()
     {
-        goalmoved = Time.time;
+        //goalmoved = Time.time;
         for (int i = 0; i < NumBoids; i++)
         {
             Vector3 spawnpoint = new Vector3(Random.Range(-AreaSize, AreaSize), Random.Range(-AreaSize, AreaSize), Random.Range(-AreaSize, AreaSize));
@@ -39,10 +39,11 @@ public class BoidManager : MonoBehaviour
             }
             */
         }
+       /*
         else {
             Goal = new Vector3(0,0,0);
             Goalmarker.transform.position = Goal;
-        }
+        }*/
     }
     public void UpdateGoal() {
         if (Boids[1].GetComponent<Boid>().goalReached)
@@ -59,6 +60,8 @@ public class BoidManager : MonoBehaviour
         }
         else
         {
+            Goal = new Vector3(0, 0, 0);
+            Goalmarker.transform.position = Goal;
             Circletree = true;
         }
     
