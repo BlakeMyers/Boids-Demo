@@ -6,14 +6,19 @@ public class Boid : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed = 0.5f;
+    public GameObject Goal;
     float rotationSpeed = 4.0f;
     Vector3 averageHeading;
     Vector3 averagePosition;
+    public bool goalReached = false;
     float detectionDistance = 8.0f;
     bool turning = false;
+    public BoidManager BM;
     void Start()
     {
+        BM = GameObject.Find("Boid Manager").GetComponent<BoidManager>();
         speed = Random.Range(1, 3);
+
     }
 
     // Update is called once per frame
@@ -48,6 +53,7 @@ public class Boid : MonoBehaviour
         float groupSpeed = 0.1f;
         int groupSize = 0;
         float dist;
+        float dist2;
 
         foreach (GameObject boid in Boids) {
             if (boid != this.gameObject) {
@@ -70,7 +76,15 @@ public class Boid : MonoBehaviour
             speed = groupSpeed / groupSize;
             if (speed > 5)
                 speed = 5;
-
+            dist2 = Vector3.Distance(this.transform.position, toGoal);
+            if ((dist2 < 2.0f))
+            {
+                goalReached = true;
+            }
+            else
+            {
+                goalReached = false;
+            }
             Vector3 direction = (toCenter + toAvoid) - transform.position;
             if (direction != Vector3.zero)
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
